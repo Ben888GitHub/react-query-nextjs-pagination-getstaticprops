@@ -12,9 +12,20 @@ function PaginationSSG(props) {
 	return (
 		<div>
 			<h1>Pagination SSG</h1>
-			{/* <h3>{router.query.page}</h3> */}
+			<button
+				disabled={Number(router.query.page) === 1}
+				onClick={() => {
+					router.push({
+						pathname: '/characters/[page]',
+						query: { page: Number(router.query.page) - 1 }
+					});
+				}}
+			>
+				Previous
+			</button>
 			<br />
 			<button
+				disabled={!data?.info?.next || isPreviousData}
 				onClick={() => {
 					router.push({
 						pathname: '/characters/[page]',
