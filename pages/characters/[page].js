@@ -1,31 +1,13 @@
 import { useRouter } from 'next/router';
 import { useFetchCharacters, fetchCharacters } from '../../hooks/useApi';
 import { dehydrate, QueryClient } from 'react-query';
-import { useState, useEffect } from 'react';
+
 import Image from 'next/image';
 
 function PaginationSSG(props) {
 	const router = useRouter();
 	// const [page, setPage] = useState(props.page);
 	const { data, isPreviousData } = useFetchCharacters(props.page);
-
-	// props.page && console.log(page);
-
-	// data && console.log(data);
-
-	// useEffect(() => {
-	// 	// console.log(router);
-	// 	if (router.isReady) {
-	// 		// console.log(router.query.page);
-	// 		if (router.query.page) {
-	// 			console.log(router.query);
-	// 			router.push({
-	// 				pathname: '/characters/[page]',
-	// 				query: { page: Number(router.query.page) }
-	// 			}) && setPage(Number(router.query.page));
-	// 		}
-	// 	}
-	// }, [router.isReady]);
 
 	return (
 		<div>
